@@ -27,7 +27,8 @@ connectToDB();
 // middlewares
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://yz-shop-taupe.vercel.app'
+  // 'https://yz-shop-taupe.vercel.app',
+  'https://yz-shop.vercel.app'
 ];
 
 server.use(cors({
