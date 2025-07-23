@@ -35,13 +35,17 @@ server.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error("CORS not allowed for origin: " + origin));
     }
   },
   credentials: true,
   exposedHeaders: ['X-Total-Count'],
-  methods: ['GET', 'POST', 'PATCH', 'DELETE']
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
 }));
+
+
+
+
 
 server.use(express.json());
 server.use(cookieParser());
