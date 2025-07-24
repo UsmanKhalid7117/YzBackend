@@ -5,7 +5,8 @@ const { sanitizeUser } = require('../utils/SanitizeUser')
 exports.verifyToken=async(req,res,next)=>{
     try {
         // extract the token from request cookies
-        const {token}=req.cookies
+        const token = req.cookies.accessToken;
+
 
         // if token is not there, return 401 response
         if(!token){
