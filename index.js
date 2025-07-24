@@ -24,22 +24,29 @@ const server = express();
 // database connection
 connectToDB();
 
-// middlewares
-const allowedOrigins = [
-  'http://localhost:3000',
-  // 'https://yz-shop-taupe.vercel.app',
-  'https://yz-shop.vercel.app/',
-  'https://yz-shop.vercel.app'
-];
+// // middlewares
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   // 'https://yz-shop-taupe.vercel.app',
+//   'https://yz-shop.vercel.app/',
+//   'https://yz-shop.vercel.app'
+// ];
+
+// server.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("CORS not allowed for origin: " + origin));
+//     }
+//   },
+//   credentials: true,
+//   exposedHeaders: ['X-Total-Count'],
+//   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+// }));
 
 server.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS not allowed for origin: " + origin));
-    }
-  },
+  origin: true, // Reflect the request origin
   credentials: true,
   exposedHeaders: ['X-Total-Count'],
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
